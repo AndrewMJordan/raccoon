@@ -1,0 +1,29 @@
+
+name: Publish package
+
+env:
+  PACKAGE_REGISTRY: https://nuget.pkg.github.com/AndrewMJordan
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-dotnet@v1
+        with:
+          source-url: ${{env.PACKAGE_REGISTRY}}/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - run: |
+          projectRoot=src/Raccoon
+          dotnet build --configuration Release "$projectRoot"
+          dotnet pack --configuration Release "$projectRoot" --no-build --output .
+          dotnet nuget push *.nupkg --api-key ${{secrets.GITHUB_TOKEN}}
