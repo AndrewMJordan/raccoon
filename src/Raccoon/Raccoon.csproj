@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
+		<Version>0.1.0</Version>
+		<Authors>AndrewMJordan</Authors>
+		<Company>AndrewMJordan</Company>
+		<StartupObject>Raccoon.Program</StartupObject>
+	</PropertyGroup>
+
+	<!-- NuGet settings -->
+	<PropertyGroup>
+		<Deterministic>true</Deterministic>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<RepositoryType></RepositoryType>
+		<PackageLicenseExpression></PackageLicenseExpression>
+		<AssemblyName>Raccoon</AssemblyName>
+		<AssemblyVersion>0.1.0.0</AssemblyVersion>
+		<FileVersion>0.1.0.0</FileVersion>
+		<Product>Raccoon</Product>
+		<RepositoryUrl>https://github.com/AndrewMJordan/raccoon</RepositoryUrl>
+		<RootNamespace>Raccoon</RootNamespace>
+		<Company>AndrewMJordan</Company>
+		<Authors>AndrewMJordan</Authors>
+	</PropertyGroup>
+
+	<!-- Dotnet Tool settings -->
+	<PropertyGroup>
+		<PackAsTool>true</PackAsTool>
+		<PackageId>Andtech.Raccoon</PackageId>
+		<ToolCommandName>coon</ToolCommandName>
+		<PackageOutputPath>./nupkg</PackageOutputPath>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+</Project>
