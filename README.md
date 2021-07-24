@@ -16,8 +16,8 @@ Invoke the tool with the `coon` command.
 $ coon results.xml
 <testsuites>
   <testsuite>
-    <testcase name="MathTests.TestSubtraction" classname="MyTestSuite" duration="0.5" />
-    <testcase name="MathTests.TestAddition" classname="MyTestSuite" duration="0.25">
+    <testcase name="MathTests.TestSubtraction" classname="MyTestSuite" time="0.5" />
+    <testcase name="MathTests.TestAddition" classname="MyTestSuite" time="0.25">
       <failure message="Expected: 19; But was: 21;" />
     </testcase>
   </testsuite>
