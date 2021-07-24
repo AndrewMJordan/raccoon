@@ -3,9 +3,7 @@
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
-		<Version>0.1.0</Version>
-		<Authors>AndrewMJordan</Authors>
-		<Company>AndrewMJordan</Company>
+		<Version>0.1.1</Version>
 		<StartupObject>Andtech.Raccoon.Program</StartupObject>
 	</PropertyGroup>
 
@@ -17,16 +15,16 @@
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<RepositoryType></RepositoryType>
+		<RepositoryType>git</RepositoryType>
 		<PackageLicenseExpression></PackageLicenseExpression>
 		<AssemblyName>Raccoon</AssemblyName>
-		<AssemblyVersion>0.1.0.0</AssemblyVersion>
-		<FileVersion>0.1.0.0</FileVersion>
+		<AssemblyVersion>0.1.1.0</AssemblyVersion>
+		<FileVersion>0.1.1.0</FileVersion>
 		<Product>Raccoon</Product>
-		<RepositoryUrl>https://github.com/AndrewMJordan/raccoon</RepositoryUrl>
+		<RepositoryUrl>https://github.com/AndtechGames/raccoon</RepositoryUrl>
 		<RootNamespace>Raccoon</RootNamespace>
-		<Company>AndrewMJordan</Company>
-		<Authors>AndrewMJordan</Authors>
+		<Company>AndtechGames</Company>
+		<Authors>AndtechGames</Authors>
 	</PropertyGroup>
 
 	<!-- Dotnet Tool settings -->
@@ -37,6 +35,23 @@
 		<PackageOutputPath>./nupkg</PackageOutputPath>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<ApplicationIcon />
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageIconUrl />
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<Copyright>© AndtechGames 2020</Copyright>
+		<PackageProjectUrl>https://github.com/AndtechGames/raccoon</PackageProjectUrl>
+		<PackageTags>raccoon;coon;tool;unity;gitlab;cli;tanuki</PackageTags>
+		<NeutralLanguage>English</NeutralLanguage>
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Include="..\..\LICENSE">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
+	  <None Include="icon.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
+	</ItemGroup>
 
 </Project>
