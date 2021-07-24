@@ -2,14 +2,10 @@
 Convert Unity test results to [GitLab test reports](https://docs.gitlab.com/ee/ci/unit_test_reports.html).
 
 ## Prerequisites
-1. Add the `AndtechGames` NuGet registry.
-```shell
-$ dotnet nuget add source --username USERNAME --password PERSONAL_ACCESS_TOKEN --store-password-in-clear-text --name github/andtechgames "https://nuget.pkg.github.com/AndtechGames/index.json"
-```
-2. Install `.NET Core`.
+* [.NET Core](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools).
 
 ## Installation
-1. Install **Raccoon** with `dotnet tool`.
+1. Use `dotnet tool install`.
 ```shell
 $ dotnet tool install --global Andtech.Raccoon
 ```
@@ -32,4 +28,10 @@ Or pass a second argument to write the results to a file.
 
 ```shell
 $ coon unity.xml gitlab.xml
+```
+
+## Uninstallation
+1. Use `dotnet tool uninstall`.
+```shell
+$ dotnet tool uninstall --global Andtech.Raccoon
 ```
