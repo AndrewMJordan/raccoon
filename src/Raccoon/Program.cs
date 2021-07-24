@@ -32,7 +32,7 @@ namespace Andtech.Raccoon
 					var testCaseNode = new XElement("testcase");
 					testCaseNode.SetAttributeValue("name", testCase.Attribute("fullname").Value);
 					testCaseNode.SetAttributeValue("classname", suiteName);
-					testCaseNode.SetAttributeValue("duration", testCase.Attribute("duration").Value);
+					testCaseNode.SetAttributeValue("time", testCase.Attribute("duration").Value);
 					testSuiteNode.Add(testCaseNode);
 
 					var hasFailure = testCase.Elements("failure").Any();
