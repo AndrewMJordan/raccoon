@@ -6,7 +6,7 @@
 		<Version>0.1.0</Version>
 		<Authors>AndrewMJordan</Authors>
 		<Company>AndrewMJordan</Company>
-		<StartupObject>Raccoon.Program</StartupObject>
+		<StartupObject>Andtech.Raccoon.Program</StartupObject>
 	</PropertyGroup>
 
 	<!-- NuGet settings -->
@@ -36,6 +36,7 @@
 		<ToolCommandName>coon</ToolCommandName>
 		<PackageOutputPath>./nupkg</PackageOutputPath>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<ApplicationIcon />
 	</PropertyGroup>
 
 </Project>
