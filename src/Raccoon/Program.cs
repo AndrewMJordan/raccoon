@@ -13,7 +13,7 @@ namespace Andtech.Raccoon
 		{
 			var sourcePath = args.Length >= 1 ? args[0] : null;
 			var destinationPath = args.Length >= 2 ? args[1] : null;
-
+			
 			var root = new XElement("testsuites");
 
 			var testSuites = XDocument.Load(sourcePath)
@@ -39,11 +39,22 @@ namespace Andtech.Raccoon
 					if (hasFailure)
 					{
 						var failure = testCase.Element("failure");
+						var statusString = testCase.Attributes().Any(IsErrorLabel) ? "error" : "failure";
 
-						var failureNode = new XElement("failure");
-						testCaseNode.Add(failureNode);
+						var statusNode = new XElement(statusString);
+						testCaseNode.Add(statusNode);
 
-						failureNode.SetAttributeValue("message", failure.Element("message").Value);
+						statusNode.Value = failure.Element("message").Value.Trim();
+
+						bool IsErrorLabel(XAttribute attribute)
+						{
+							if (attribute.Name == "label" && attribute.Value == "Error")
+							{
+								return true;
+							}
+
+							return false;
+						}
 					}
 				}
 			}
