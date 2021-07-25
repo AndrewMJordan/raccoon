@@ -4,7 +4,15 @@ Convert [Unity test results](https://docs.unity3d.com/Packages/com.unity.test-fr
 Unity generates NUnit XML test results; however, GitLab expects JUnit XML test reports. Use **Raccoon** to convert between the two formats.
 
 ## Prerequisites
-* [.NET Core](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools).
+* [.NET Core](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools)
+* Make sure [NuGet Gallery](https://nuget.org) is registered as a source in your NuGet configuration (it should be, by default).
+
+```shell
+$ dotnet nuget list source
+Registered Sources:
+  1.  nuget.org [Enabled]
+      https://api.nuget.org/v3/index.json
+```
 
 ## Installation
 1. Use `dotnet tool install`.
@@ -13,7 +21,7 @@ $ dotnet tool install --global Andtech.Raccoon
 ```
 
 ## Usage
-Invoke the tool with the `coon` command.
+* Invoke the tool with the `coon` command.
 ```shell
 $ coon results.xml
 <testsuites>
