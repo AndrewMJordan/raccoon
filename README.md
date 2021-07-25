@@ -5,7 +5,7 @@ Unity generates NUnit XML test results; however, GitLab expects JUnit XML test r
 
 ## Prerequisites
 * [.NET Core](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools)
-* Make sure [NuGet Gallery](https://nuget.org) is registered as a source in your NuGet configuration (it should be, by default).
+* Make sure [NuGet Gallery](https://nuget.org) is registered as a source in your NuGet configuration (it is by default).
 
 ```shell
 $ dotnet nuget list source
