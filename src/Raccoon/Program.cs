@@ -14,7 +14,7 @@ namespace Andtech.Raccoon
 			var sourcePath = args.Length >= 1 ? args[0] : null;
 			var destinationPath = args.Length >= 2 ? args[1] : null;
 			
-			var root = new XElement("testsuites");
+			var rootElement = new XElement("testsuites");
 
 			var testSuites = XDocument.Load(sourcePath)
 				.Descendants("test-suite")
@@ -22,18 +22,18 @@ namespace Andtech.Raccoon
 			foreach (var testSuite in testSuites)
 			{
 				var suiteName = testSuite.Attribute("fullname").Value;
-				var testSuiteNode = new XElement("testsuite");
-				root.Add(testSuiteNode);
+				var testSuiteElement = new XElement("testsuite");
+				rootElement.Add(testSuiteElement);
 
 				var testCases = testSuite
 					.Descendants("test-case");
 				foreach (var testCase in testCases)
 				{
-					var testCaseNode = new XElement("testcase");
-					testCaseNode.SetAttributeValue("name", testCase.Attribute("fullname").Value);
-					testCaseNode.SetAttributeValue("classname", suiteName);
-					testCaseNode.SetAttributeValue("time", testCase.Attribute("duration").Value);
-					testSuiteNode.Add(testCaseNode);
+					var testCaseElement = new XElement("testcase");
+					testCaseElement.SetAttributeValue("name", testCase.Attribute("fullname").Value);
+					testCaseElement.SetAttributeValue("classname", suiteName);
+					testCaseElement.SetAttributeValue("time", testCase.Attribute("duration").Value);
+					testSuiteElement.Add(testCaseElement);
 
 					var hasFailure = testCase.Elements("failure").Any();
 					if (hasFailure)
@@ -41,10 +41,10 @@ namespace Andtech.Raccoon
 						var failure = testCase.Element("failure");
 						var statusString = testCase.Attributes().Any(IsErrorLabel) ? "error" : "failure";
 
-						var statusNode = new XElement(statusString);
-						testCaseNode.Add(statusNode);
+						var statusElement = new XElement(statusString);
+						testCaseElement.Add(statusElement);
 
-						statusNode.Value = failure.Element("message").Value.Trim();
+						statusElement.Value = failure.Element("message").Value.Trim();
 
 						bool IsErrorLabel(XAttribute attribute)
 						{
@@ -61,7 +61,7 @@ namespace Andtech.Raccoon
 
 			if (string.IsNullOrEmpty(destinationPath))
 			{
-				Console.WriteLine(root);
+				Console.WriteLine(rootElement);
 			}
 			else
 			{
@@ -70,7 +70,7 @@ namespace Andtech.Raccoon
 				{
 					Directory.CreateDirectory(directory);
 				}
-				File.WriteAllText(destinationPath, root.ToString());
+				File.WriteAllText(destinationPath, rootElement.ToString());
 			}
 		}
 	}
