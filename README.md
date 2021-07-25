@@ -1,5 +1,7 @@
 # Raccoon
-Convert Unity test results to [GitLab test reports](https://docs.gitlab.com/ee/ci/unit_test_reports.html).
+Convert [Unity test results](https://docs.unity3d.com/Packages/com.unity.test-framework@1.1/manual/reference-command-line.html) to [GitLab test reports](https://docs.gitlab.com/ee/ci/unit_test_reports.html).
+
+Unity generates NUnit XML test results; however, GitLab expects JUnit XML test reports. Use **Raccoon** to convert between the two formats.
 
 ## Prerequisites
 * [.NET Core](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools).
@@ -18,7 +20,10 @@ $ coon results.xml
   <testsuite>
     <testcase name="MathTests.TestSubtraction" classname="MyTestSuite" time="0.5" />
     <testcase name="MathTests.TestAddition" classname="MyTestSuite" time="0.25">
-      <failure message="Expected: 19; But was: 21;" />
+      <failure>Expected: 19; But was: 21;</failure>
+    </testcase>
+    <testcase name="MathTests.Multiplication" classname="MyTestSuite" time="0.9">
+      <error>System.Exception : Exception of type 'System.Exception' was thrown.</error>
     </testcase>
   </testsuite>
 </testsuites>
