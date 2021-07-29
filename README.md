@@ -1,3 +1,5 @@
+[![NuGet](https://img.shields.io/nuget/v/Andtech.Raccoon)](https://nuget.org/packages/Andtech.Raccoon)
+
 # Raccoon
 Convert [Unity test results](https://docs.unity3d.com/Packages/com.unity.test-framework@1.1/manual/reference-command-line.html) to [GitLab test reports](https://docs.gitlab.com/ee/ci/unit_test_reports.html).
 
