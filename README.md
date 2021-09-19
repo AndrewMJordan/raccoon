@@ -23,9 +23,9 @@ $ dotnet tool install --global Andtech.Raccoon
 ```
 
 ## Usage
-* Invoke the tool with the `coon` command.
+* Invoke the tool with the `raccoon` command.
 ```shell
-$ coon results.xml
+$ raccoon results.xml
 <testsuites>
   <testsuite>
     <testcase name="MathTests.TestSubtraction" classname="MyTestSuite" time="0.5" />
@@ -42,7 +42,7 @@ $ coon results.xml
 Or pass a second argument to write the results to a file.
 
 ```shell
-$ coon unity.xml gitlab.xml
+$ raccoon unity.xml gitlab.xml
 ```
 
 ## Uninstallation

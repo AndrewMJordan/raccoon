@@ -31,7 +31,7 @@
 	<PropertyGroup>
 		<PackAsTool>true</PackAsTool>
 		<PackageId>Andtech.Raccoon</PackageId>
-		<ToolCommandName>coon</ToolCommandName>
+		<ToolCommandName>raccoon</ToolCommandName>
 		<PackageOutputPath>./nupkg</PackageOutputPath>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<ApplicationIcon />
@@ -40,7 +40,7 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<Copyright>© AndtechGames 2020</Copyright>
 		<PackageProjectUrl>https://github.com/AndtechGames/raccoon</PackageProjectUrl>
-		<PackageTags>raccoon;coon;tool;unity;gitlab;cli;tanuki</PackageTags>
+		<PackageTags>raccoon;tool;unity;gitlab;cli;tanuki</PackageTags>
 		<NeutralLanguage>English</NeutralLanguage>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<Description>Convert Unity test results to GitLab test reports</Description>
