@@ -13,10 +13,19 @@ namespace Andtech.Raccoon
 		{
 			var sourcePath = args.Length >= 1 ? args[0] : null;
 			var destinationPath = args.Length >= 2 ? args[1] : null;
-			
-			var rootElement = new XElement("testsuites");
 
-			var testSuites = XDocument.Load(sourcePath)
+			XDocument document;
+			if (sourcePath is null)
+			{
+				document = XDocument.Parse(Console.In.ReadToEnd());
+			}
+			else
+			{
+				document = XDocument.Load(sourcePath);
+			}
+
+			var rootElement = new XElement("testsuites");
+			var testSuites = document
 				.Descendants("test-suite")
 				.Where(x => x.Attribute("type").Value == "TestFixture");
 			foreach (var testSuite in testSuites)
