@@ -21,10 +21,10 @@
 		<AssemblyVersion>0.2.0.0</AssemblyVersion>
 		<FileVersion>0.2.0.0</FileVersion>
 		<Product>Raccoon</Product>
-		<RepositoryUrl>https://github.com/AndtechGames/raccoon</RepositoryUrl>
+		<RepositoryUrl>https://github.com/andtechstudios/raccoon</RepositoryUrl>
 		<RootNamespace>Raccoon</RootNamespace>
-		<Company>AndtechGames</Company>
-		<Authors>AndtechGames</Authors>
+		<Company>Andtech Studios</Company>
+		<Authors>Andtech Studios</Authors>
 	</PropertyGroup>
 
 	<!-- Dotnet Tool settings -->
@@ -38,8 +38,8 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageIconUrl />
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<Copyright>© AndtechGames 2020</Copyright>
-		<PackageProjectUrl>https://github.com/AndtechGames/raccoon</PackageProjectUrl>
+		<Copyright>© Andtech Studios 2021</Copyright>
+		<PackageProjectUrl>https://github.com/andtechstudios/raccoon</PackageProjectUrl>
 		<PackageTags>raccoon;tool;unity;gitlab;cli;tanuki</PackageTags>
 		<NeutralLanguage>English</NeutralLanguage>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
