@@ -12,7 +12,7 @@ namespace Andtech.Raccoon
 
 		internal class Options
 		{
-			[Value(0, HelpText = "The XML file containing the test results.")]
+			[Value(0, HelpText = "The file containing the test results.", Required = false)]
 			public string InputFilePath { get; set; }
 			[Option('o', "output", HelpText = "Write to file instead of stdout")]
 			public string OutputFilePath { get; set; }
