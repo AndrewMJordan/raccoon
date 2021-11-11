@@ -77,7 +77,7 @@ namespace Andtech.Raccoon
 			else
 			{
 				var directory = Path.GetDirectoryName(options.OutputFilePath);
-				if (Directory.Exists(directory))
+				if (!Directory.Exists(directory))
 				{
 					Directory.CreateDirectory(directory);
 				}
