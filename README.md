@@ -1,5 +1,3 @@
-[![NuGet](https://img.shields.io/nuget/v/Andtech.Raccoon)](https://nuget.org/packages/Andtech.Raccoon)
-
 ## Setup
 
 ### Prerequisites
