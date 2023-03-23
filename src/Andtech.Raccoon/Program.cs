@@ -1,7 +1,9 @@
 ﻿using CommandLine;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 namespace Andtech.Raccoon
@@ -10,7 +12,8 @@ namespace Andtech.Raccoon
 	public class Program
 	{
 
-		internal class Options
+		[Verb("trigger", true)]
+		internal class TriggerOptions
 		{
 			[Value(0, HelpText = "The file containing the test results.", Required = false)]
 			public string InputFilePath { get; set; }
@@ -18,9 +21,20 @@ namespace Andtech.Raccoon
 			public string OutputFilePath { get; set; }
 		}
 
-		public static void Main(string[] args) => Parser.Default.ParseArguments<Options>(args).WithParsed(OnParse);
+		[Verb("coverage", false)]
+		internal class CoverageOptions
+		{
+			[Value(0, HelpText = "The file containing Cobertura coverage report.", Required = false)]
+			public string InputFilePath { get; set; }
+			[Option("multiplier", HelpText = "Multiply the coverage value by this factor.")]
+			public double Multiplier { get; set; } = 1.0;
+		}
 
-		static void OnParse(Options options)
+		public static void Main(string[] args) => Parser.Default.ParseArguments<TriggerOptions, CoverageOptions>(args)
+			.WithParsed<TriggerOptions>(Trigger)
+			.WithParsed<CoverageOptions>(Coverage);
+
+		static void Trigger(TriggerOptions options)
 		{
 			XDocument document = options.InputFilePath is null ?
 				XDocument.Parse(Console.In.ReadToEnd()) :
@@ -83,6 +97,22 @@ namespace Andtech.Raccoon
 				}
 				File.WriteAllText(options.OutputFilePath, rootElement.ToString());
 			}
+		}
+
+		static void Coverage(CoverageOptions options)
+		{
+			var content = File.ReadAllText(options.InputFilePath);
+			var regex = Regex.Match(content, @"coverage line-rate=\""(?<linerate>.*?)\""");
+
+			if (!regex.Success)
+			{
+				Environment.ExitCode = 1;
+				throw new InvalidOperationException("Coverage could not be parsed!");
+			}
+
+			var coverage = double.Parse(regex.Groups["linerate"].Value);
+			coverage *= options.Multiplier;
+			Console.WriteLine($"Code coverage is: {coverage:.0}");
 		}
 	}
 }

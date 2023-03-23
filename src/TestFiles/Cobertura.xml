@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage line-rate="0.897" branch-rate="1" lines-covered="16" lines-valid="16" branches-covered="0" branches-valid="0" complexity="0" version="0" timestamp="10000">
+  <sources />
+  <packages>
+    <package name="Core" line-rate="1" branch-rate="1" complexity="0">
+      <classes>
+      </classes>
+    </package>
+  </packages>
+</coverage>
