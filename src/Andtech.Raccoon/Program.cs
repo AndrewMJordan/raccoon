@@ -112,7 +112,7 @@ namespace Andtech.Raccoon
 
 			var coverage = double.Parse(regex.Groups["linerate"].Value);
 			coverage *= options.Multiplier;
-			Console.WriteLine($"Code coverage is: {coverage:.0}");
+			Console.WriteLine($"Code coverage is: {coverage:.0###}");
 		}
 	}
 }
